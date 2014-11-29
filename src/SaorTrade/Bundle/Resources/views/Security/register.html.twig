@@ -1,0 +1,39 @@
+{% extends 'SaorTradeBundle:Layout:default.html.twig' %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Registration</h1>
+            {{ form_start(registrationForm) }}
+            {{ form_errors(registrationForm) }}
+
+            <div class="form-group">
+                {{ form_label(registrationForm.username) }} <br />
+                {{ form_widget(registrationForm.username, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(registrationForm.email) }} <br />
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(registrationForm.password.password) }} <br />
+                {{ form_widget(registrationForm.password.password, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(registrationForm.password.confirm) }} <br />
+                {{ form_widget(registrationForm.password.confirm, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(registrationForm.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+            </div>
+
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+
+{% endblock %}

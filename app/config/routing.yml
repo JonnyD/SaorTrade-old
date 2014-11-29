@@ -1,0 +1,4 @@
+saor_trade:
+    resource: "@SaorTradeBundle/Resources/config/routing.yml"
+    prefix:   /
+

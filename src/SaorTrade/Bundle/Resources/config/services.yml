@@ -1,0 +1,24 @@
+parameters:
+  # Service
+  user_service.class: SaorTrade\Bundle\Service\UserService
+
+  # Repository
+  user_repository.class: SaorTrade\Bundle\Repository\Doctrine\ORM\UserRepository
+  user_repository.factory_argument: 'SaorTradeBundle:User'
+
+services:
+  # Repository
+  saor_trade.user_repository:
+    class: %user_repository.class%
+    factory_service: doctrine.orm.entity_manager
+    factory_method: getRepository
+    arguments:
+      - %user_repository.factory_argument%
+
+  # Service
+  saor_trade.user_service:
+    class: %user_service.class%
+    arguments:
+      - @saor_trade.user_repository
+
+

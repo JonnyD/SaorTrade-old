@@ -1,0 +1,7 @@
+saor_trade_homepage:
+    path:     /
+    defaults: { _controller: SaorTradeBundle:Page:home }
+
+saor_trade.register:
+    path: /register
+    defaults: { _controller: SaorTradeBundle:Page:register }
