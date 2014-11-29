@@ -27,7 +27,7 @@ class RegistrationForm extends AbstractType
     public function getDefaultOptions(array $options)
     {
         return array(
-            'data_class' => 'SaorTrade\Bundle\Model\User',
+            'data_class' => 'SaorTrade\Bundle\Entity\User',
             'validation_groups' => array('registration')
         );
     }

@@ -103,9 +103,15 @@ class User implements UserInterface, EquatableInterface
      */
     private $roles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Want", mappedBy="user", cascade="persist")
+     */
+    private $wants;
+
     public function __construct()
     {
         $this->roles = new ArrayCollection();
+        $this->wants = new ArrayCollection();
     }
 
     public function getId()
@@ -315,5 +321,28 @@ class User implements UserInterface, EquatableInterface
     public function eraseCredentials()
     {
 
+    }
+
+    public function getWants()
+    {
+        return $this->wants;
+    }
+
+    public function setWants($wants)
+    {
+        $this->wants = $wants;
+    }
+
+    public function hasWant(Want $want)
+    {
+        return $this->wants->contains($want);
+    }
+
+    public function addWant(Want $want)
+    {
+        if (!$this->hasWant($want)) {
+            $this->wants->add($want);
+            $want->setUser($this);
+        }
     }
 }

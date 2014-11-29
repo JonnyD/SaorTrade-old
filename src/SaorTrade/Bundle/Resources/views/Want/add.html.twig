@@ -1,0 +1,28 @@
+{% extends 'SaorTradeBundle:Layout:default.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Add Want</h1>
+
+            {{ form_start(addWantForm) }}
+            {{ form_errors(addWantForm) }}
+
+            <div class="form-group">
+                {{ form_label(addWantForm.title) }} <br />
+                {{ form_widget(addWantForm.title, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(addWantForm.description) }} <br />
+                {{ form_widget(addWantForm.description, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(addWantForm.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+            </div>
+
+            {{ form_end(addWantForm) }}
+        </div>
+    </div>
+{% endblock %}

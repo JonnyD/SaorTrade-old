@@ -18,4 +18,9 @@ class UserService
     {
         $this->userRepository->save($user);
     }
+
+    public function getUserById($id)
+    {
+        return $this->userRepository->find($id);
+    }
 }

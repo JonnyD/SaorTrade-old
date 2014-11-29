@@ -1,10 +1,13 @@
 parameters:
   # Service
   user_service.class: SaorTrade\Bundle\Service\UserService
+  want_service.class: SaorTrade\Bundle\Service\WantService
 
   # Repository
   user_repository.class: SaorTrade\Bundle\Repository\Doctrine\ORM\UserRepository
   user_repository.factory_argument: 'SaorTradeBundle:User'
+  want_repository.class: SaorTrade\Bundle\Repository\Doctrine\ORM\WantRepository
+  want_repository.factory_argument: 'SaorTradeBundle:Want'
 
 services:
   # Repository
@@ -15,10 +18,22 @@ services:
     arguments:
       - %user_repository.factory_argument%
 
+  saor_trade.want_repository:
+    class: %want_repository.class%
+    factory_service: doctrine.orm.entity_manager
+    factory_method: getRepository
+    arguments:
+      - %want_repository.factory_argument%
+
   # Service
   saor_trade.user_service:
     class: %user_service.class%
     arguments:
       - @saor_trade.user_repository
+
+  saor_trade.want_service:
+    class: %want_service.class%
+    arguments:
+      - @saor_trade.want_repository
 
 

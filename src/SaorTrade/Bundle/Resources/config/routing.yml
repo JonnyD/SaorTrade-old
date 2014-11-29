@@ -3,5 +3,21 @@ saor_trade_homepage:
     defaults: { _controller: SaorTradeBundle:Page:home }
 
 saor_trade.register:
-    path: /register
+    path: /register/
     defaults: { _controller: SaorTradeBundle:Page:register }
+
+saor_trade.show_user:
+    path: /user/{id}/
+    defaults: { _controller: SaorTradeBundle:User:showUser }
+
+saor_trade.list_wants:
+    path: /wants/
+    defaults: { _controller: SaorTradeBundle:Want:list }
+
+saor_trade.add_wants:
+    path: /wants/add/
+    defaults: { _controller: SaorTradeBundle:Want:add }
+
+saor_trade.show_want:
+    path: /wants/{id}
+    defaults: { _controller: SaorTradeBundle:Want:show }
